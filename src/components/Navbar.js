@@ -1,11 +1,14 @@
 import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import { logOut } from "../helpers/firebase";
 import { AuthContext } from '../context/AuthContext';
 
 
 const Navbar = () => {
 const navigate = useNavigate()
-const { currentUser }= useContext(AuthContext);
+//const { currentUser }= useContext(AuthContext);
+//const currentUser={displayName:"Bnm"}
+const currentUser =false;
   return (
     <div>
         <nav className="navbar navbar-expand-lg">
@@ -29,7 +32,7 @@ const { currentUser }= useContext(AuthContext);
                     {currentUser ? (
                         <button
                            className="ms-2 btn btn-outline-dark"
-                           //onClick={() => logOut()}
+                           onClick={() => logOut()}
                         >	
                             Logout
                         </button>
