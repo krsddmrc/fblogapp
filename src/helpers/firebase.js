@@ -1,8 +1,6 @@
 import { initializeApp } from "firebase/app";
-import {onAuthStateChanged, createUserWithEmailAndPassword,signInWithEmailAndPassword, getAuth, signOut, updateProfile} from "firebase/auth";
+import {signInWithPopup, onAuthStateChanged, GoogleAuthProvider, createUserWithEmailAndPassword,signInWithEmailAndPassword, getAuth, signOut, updateProfile} from "firebase/auth";
 
-// TODO: Replace the following with your app's Firebase project configuration
-// See: https://firebase.google.com/docs/web/learn-more#config-object
 const firebaseConfig = {
     apiKey: "AIzaSyCQus_EFKhKntwIao0VMiPfbZtGCfyMys0",
     authDomain: "fblogapp-f8291.firebaseapp.com",
@@ -61,4 +59,14 @@ export const userObserver = (setCurrentUser) => {
     }
   });
 };
-
+export const signUpProvider = (navigate) => {
+ const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      console.log(result);
+      navigate("/");
+    })
+    .catch((error) => {
+     console.log(error);
+    });
+};
