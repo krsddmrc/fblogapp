@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { forgotPassword, signUpProvider, 
-signIn, } from "../helpers/firebase";
+import {signUpProvider, signIn, } from "../helpers/firebase";
 
 const Login = () => {
   const [email, setEmail] = useState();
